@@ -1,34 +1,23 @@
 import { useEffect, useRef } from "react"
 // const ModelViewer = require('@metamask/logo');
 import ModelViewer from "@metamask/logo"
+import { initialState } from "../../hooks/appInfo";
 
-export function MetaMaskLogo() {
+export function MetaMaskLogo({w,h}) {//props w and h were made because when I changed pages the metamask logo appeared
   const viewer = ModelViewer({
-    // Dictates whether width & height are px or multiplied
     pxNotRatio: true,
-    width: 60,
-    height: 60,
-    // pxNotRatio: false,
-    // width: 0.9,
-    // height: 0.9,
-  
-    // To make the face follow the mouse.
+    width: w,
+    height: h,
     followMouse: window.innerHeight>576?true:false,
-  
-    // head should slowly drift (overrides lookAt)
     slowDrift: false,
-  });
-
+  })
   const container = useRef(null)
-
-
-    useEffect(()=>{
-        container.current.appendChild(viewer.container)
-    },[])
-
-
+  useEffect(()=>{
+      container.current.appendChild(viewer.container)
+  },[])
   return (
     <div ref={container}>
     </div>
   )
+  
 }

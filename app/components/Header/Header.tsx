@@ -1,7 +1,7 @@
 import styles from "./Header.module.css"
 import Image from "next/image"
 import Link from "next/link"
-import ratherLogo from "../../../public/rather-logo.jpg"
+import ratherLogo from "../../../public/r-png.png"
 import github from "../../../public/github.svg"
 import metamask from "../../../public/metamask.svg"
 
@@ -15,9 +15,9 @@ export default function Header() {
       </section>
       <Link href={"/"} className={styles.links}>Help</Link>
       <section className={styles.imgCont}>
-          <Image src={ratherLogo} alt="Rather Labs logo"/>
+          <Link href={"/"}><Image src={ratherLogo} alt="Rather Labs logo"/></Link>
       </section>
-      <Link href={"/"} className={styles.links}>About me</Link>
+      <Link href={"/about"} className={styles.links}>About me</Link>
 
       {false ?
       <section className={styles.pointsCont}>

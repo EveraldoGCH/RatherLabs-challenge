@@ -21,11 +21,21 @@
     align-items: center;
     cursor: pointer;
 }
-.btnConnect{
+.btn img{
+    width: 60%;
+    height: auto;
+}
+.btnConnect1{
+    font-size: 16px;
+    position: relative;
+    left: 14px;
+}
+.btnConnect2{
     font-size: 16px;
     position: relative;
     left: 0px;
 }
+
 
 .metamaskLogo{
     width:50%;
@@ -45,5 +55,8 @@
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     margin: 12px;
+    display: flex;
+    justify-content: center;
+
 }
 
