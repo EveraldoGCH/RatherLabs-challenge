@@ -3,10 +3,12 @@
     height: 87vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
 }
 .btn{
-    width: 20%;
+    width: 15%;
+    min-width: 130px;
     height: 70px;
     background: white;
     color: black;
@@ -15,17 +17,33 @@
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     cursor: pointer;
 }
 .btnConnect{
     font-size: 16px;
     position: relative;
-    left: 16px;
+    left: 0px;
 }
 
 .metamaskLogo{
     width:50%;
     height: auto;
 }
+.adress{
+    width: 30%;
+    background: white;
+    word-wrap:break-word;
+    height: 30px;
+    line-height: 28px;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Montserrat';
+    border: 1px solid #DAE4F2;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    margin: 12px;
+}
+

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/context/appContext.js", "app/components/MetaMaskLogo/MetaMaskLogo.js"  ],
   "exclude": [
     "node_modules"
   ]
