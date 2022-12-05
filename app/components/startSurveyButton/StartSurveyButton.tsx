@@ -49,7 +49,7 @@ export default function StartSurveyButton() {
   }, []);
 
   async function reqAccount() {
-    if (window.ethereum != undefined) {
+    if (window?.ethereum != undefined) {
       try {
         await window.ethereum
           .request({
@@ -83,7 +83,7 @@ export default function StartSurveyButton() {
  
   async function changeToGoerliNet() {
     try {
-      await window.ethereum.request({
+      await window.ethereum?.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: "0x5" }],
       }).then((res:any)=>{
@@ -111,7 +111,7 @@ export default function StartSurveyButton() {
   }
 
   async function startSurvey() {
-    if (window.ethereum.networkVersion != 5) {
+    if (window.ethereum?.networkVersion != 5) {
       setOpenModal(true);
     }
     else{
