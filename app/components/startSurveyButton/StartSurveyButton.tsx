@@ -11,8 +11,15 @@ import { Modal } from "antd";
 export default function StartSurveyButton() {
   const [state, dispatch] = useReducer(appReducer, initialState);
   let { userAdress, userBalance, QuizContract, ERC20_ABI } = state;
-  let userLS = window.localStorage.getItem("UserMetaMask");
-  let userLSParsed = userLS != null ? JSON.parse(userLS) : "";
+  let userLS = typeof window !== 'undefined' ?window.localStorage.getItem("UserMetaMask"):"";
+  let userLSParsed:string;
+  try{
+    userLSParsed = userLS != null ? JSON.parse(userLS) : "";
+
+  }
+  catch(err){
+    console.log(err)
+  }
   let router=useRouter()
 
   const [openModal, setOpenModal] = useState(false);
@@ -58,7 +65,7 @@ export default function StartSurveyButton() {
           .then((res: any) => {
             connectWallet(res[0])
             dispatch({ type: "UserMetaMask", payload: res[0] });
-            window.localStorage.setItem("UserMetaMask", JSON.stringify(res[0]));
+            window?.localStorage.setItem("UserMetaMask", JSON.stringify(res[0]));
           });
       } catch (error) {
         console.log(error);
@@ -70,7 +77,7 @@ export default function StartSurveyButton() {
 
   async function connectWallet(adress:string) {
     if (window.ethereum != undefined) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new ethers.providers.Web3Provider(window?.ethereum);
       const contract = new ethers.Contract(QuizContract, ERC20_ABI, provider);
       let balanceQuiz = await contract.balanceOf(adress)
       balanceQuiz = ethers.utils.formatEther(balanceQuiz)
@@ -83,7 +90,7 @@ export default function StartSurveyButton() {
  
   async function changeToGoerliNet() {
     try {
-      await window.ethereum?.request({
+      await window?.ethereum?.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: "0x5" }],
       }).then((res:any)=>{
@@ -93,7 +100,7 @@ export default function StartSurveyButton() {
       // This error code indicates that the chain has not been added to MetaMask.
       if (switchError.code === 4902) {
         try {
-          await window.ethereum.request({
+          await window?.ethereum.request({
             method: "wallet_addEthereumChain",
             params: [
               {
@@ -111,7 +118,7 @@ export default function StartSurveyButton() {
   }
 
   async function startSurvey() {
-    if (window.ethereum?.networkVersion != 5) {
+    if (window?.ethereum?.networkVersion != 5) {
       setOpenModal(true);
     }
     else{
