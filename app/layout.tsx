@@ -1,17 +1,18 @@
 "use client"
 import "../styles/globals.css"
 import Header from "./components/Header/Header"
-import { AnimatePresence } from "framer-motion"
+import { ContextProvider } from "./context/ContextProvider"
+
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
   return (
     <html>
       <head />
       <body>
-        <AnimatePresence>
+        <ContextProvider>
           <Header/>
-          {children}
-        </AnimatePresence>
+          { children }
+        </ContextProvider>
       </body>
     </html>
   )

@@ -4,8 +4,12 @@ import Link from "next/link"
 import ratherLogo from "../../../public/r-png.png"
 import github from "../../../public/github.svg"
 import metamask from "../../../public/metamask.svg"
+import { useContext, useEffect } from "react"
+import { AppContext } from "../../context/appInfo"
+
 
 export default function Header() {
+  const { state }= useContext(AppContext)
   return (
     <article className={styles.headerCont}>
       <section className={styles.imgContGH}>
@@ -19,17 +23,11 @@ export default function Header() {
       </section>
       <Link href={"/about"} className={styles.links}>About me</Link>
 
-      {false ?
+      
       <section className={styles.pointsCont}>
-          <Image src={ratherLogo} alt="Rather Labs logo" className={styles.pointsImg}/>
-          <p className={styles.userPoints}>123usd</p>
+        <p className={styles.userPoints}>By: Everaldo</p>
       </section>
-      :
-      <section className={styles.pointsCont}>
-        <p className={styles.userPoints}>Connect</p>
-        <Image src={metamask} alt="Rather Labs logo" className={styles.pointsImgMM}/>
-      </section>
-      }
+      
     </article>
   )
 }

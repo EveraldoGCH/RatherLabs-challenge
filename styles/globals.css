@@ -35,3 +35,6 @@ a {
   background-position: center center;
   background-attachment: scroll;
 }
+.hide{
+  display: none;
+}

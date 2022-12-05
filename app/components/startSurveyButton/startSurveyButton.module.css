@@ -16,6 +16,7 @@
     border: 1px solid #DAE4F2;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
+    margin: 8px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -60,3 +61,25 @@
 
 }
 
+.balance{
+    width: 10%;
+    background: white;
+    word-wrap:break-word;
+    height: 30px;
+    line-height: 28px;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Montserrat';
+    border: 1px solid #DAE4F2;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    margin: 12px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.balance img{
+    width: 25px;
+    height: 25px;
+}
