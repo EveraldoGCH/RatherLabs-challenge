@@ -48,34 +48,34 @@ export const initialState={
              ]
           },
           {
-             "text":"Question2",
+             "text":"¿Do you think that we should HODL?",
              "image":"https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg",
              "lifetimeSeconds":5,
              "options":[
                 {
-                   "text":"Opt1quest2"
+                   "text":"Yes, HODL"
                 },
                 {
-                   "text":"Opt2"
+                   "text":"No that much"
                 },
                 {
-                   "text":"Opt"
+                   "text":"No"
                 }
              ]
           },
           {
-            "text":"Pregunta 3",
+            "text":"¿Do you HODL BTC or any other coin?",
             "image":"https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg",
             "lifetimeSeconds":5,
             "options":[
                 {
-                   "text":"Opt1"
+                   "text":"Yes, BTC"
                 },
                 {
-                   "text":"Opt2"
+                   "text":"Other coin"
                 },
                 {
-                   "text":"Opt"
+                   "text":"None"
                 }
              ]
          }

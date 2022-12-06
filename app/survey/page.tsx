@@ -5,6 +5,7 @@ import { useState, useContext, useEffect } from "react";
 import { AppContext } from "../context/appInfo";
 import eth from "../../public/eth.png";
 import cat from "../../public/survey/cat.gif";
+import { Answers } from "../../types";
 
 export default function Survey() {
   const { state } = useContext(AppContext);
@@ -17,7 +18,7 @@ export default function Survey() {
   const [secondModal, setSecondModal] = useState(false);
   const [finalModal, setFinalModal] = useState(false);
   const [indexQuestion, setIndexQuestion] = useState(0);
-  const [answers, setAnswers]=useState([{}])
+  const [answers, setAnswers]=useState<Array<Answers>>([])
 
   useEffect(() => {
     //Hydration problem with react 18 or superior
@@ -26,7 +27,7 @@ export default function Survey() {
 
   function handleChange(e:any){
     console.log("LLEGO",e.target.value)
-    setAnswers((prevState:any)=>[...prevState, {question:questions[indexQuestion].text, answer:e.target.value}])
+    setAnswers([...answers, {question:questions[indexQuestion].text, answer:e.target.value}])
   }
 
   function handleClose() {
@@ -129,7 +130,12 @@ export default function Survey() {
               }}
             >
               <Image src={cat} width={90} height={80} alt="Survey image" />
-              <p>Thank you for answering our survey!</p>
+              <div>
+                  <p>Thank you! Your answers below:</p>
+                  {answers.map((answr)=>{
+                    return <p key={answr.question}>Question: {answr.question} Response: {answr.answer}</p>
+                  })}
+              </div>
             </div>
           </Modal>
         </>
