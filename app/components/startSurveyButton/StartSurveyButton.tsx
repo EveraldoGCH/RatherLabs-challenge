@@ -32,8 +32,6 @@ export default function StartSurveyButton() {
       }
     }
     if (window.ethereum != undefined) {
-      // window.ethereum.on('chainChanged', () => {
-      // })
       window.ethereum.on("accountsChanged", () => {
         //on account change this code will run
         try {
@@ -81,7 +79,6 @@ export default function StartSurveyButton() {
       const contract = new ethers.Contract(QuizContract, ERC20_ABI, provider);
       let balanceQuiz = await contract.balanceOf(adress)
       balanceQuiz = ethers.utils.formatEther(balanceQuiz)
-      console.log("QUIZ",balanceQuiz)
       dispatch({ type: "UserBalance", payload: balanceQuiz });
     } else {
       console.log("No hay metamask descargado");

@@ -1,6 +1,7 @@
 "use client";
 import { Modal, Button, Checkbox } from "antd";
 import Image from "next/image";
+import { ethers } from "ethers";
 import { useState, useContext, useEffect } from "react";
 import { AppContext } from "../context/appInfo";
 import eth from "../../public/eth.png";
@@ -26,12 +27,21 @@ export default function Survey() {
   }, []);
 
   function handleChange(e:any){
-    console.log("LLEGO",e.target.value)
     setAnswers([...answers, {question:questions[indexQuestion].text, answer:e.target.value}])
   }
 
   function handleClose() {
     window.location.href = "/"; //Not recommended in React to use but I dont have react-rouer-dom installed
+  }
+
+  function handleSend(){
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();    
+      signer.signMessage(JSON.stringify(answers))
+      .then(data=>console.log(data))
+      .catch(error=>{
+        console.log(error)
+      })
   }
 
   function handleFirstModal() {
@@ -45,7 +55,6 @@ export default function Survey() {
     if (indexQuestion < numberOfQuestions - 1) {
       setIndexQuestion(indexQuestion + 1);
     } else {
-      console.log("RESPUESTAS",answers)
       setSecondModal(false);
       setFinalModal(true);
     }
@@ -110,8 +119,8 @@ export default function Survey() {
             open={finalModal}
             title={"With your help we will grow the crytpo world!"}
             footer={[
-              <Button key="back" onClick={() => handleClose()}>
-                Send
+              <Button key="back" onClick={() => handleSend()}>
+                Sign answers to contractor
               </Button>,
               <Button
                 key="submit"

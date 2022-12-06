@@ -1,26 +1,5 @@
 import { createContext } from "react"
-
-interface ContextType {
-    state: {
-        userAdress: string;
-        userBalance: string;
-        QuizContract:string;
-        surveyQuestions:{
-            title:string,
-            image:string,
-            questions:Array<{text:string, image:string,lifetimeSeconds:number, options:Array<{text:string}>}>};
-        ERC20_ABI:[{
-            constant:boolean,
-            inputs:[],
-            name:string,
-            outputs:[
-                {name:string,
-                type:string}],
-            payable:boolean,
-            type:string}];
-    };
-    dispatch: React.Dispatch<{ type: string; value: unknown }>;
-  }
+import { ContextType } from "../../types";
 
 
 export const initialState={
@@ -302,8 +281,7 @@ export const initialState={
             "name": "Transfer",
             "type": "event"
         }
-    ],
-    surveyAnswers:[]
+    ]
 }
 export const AppContext = createContext<ContextType>({} as ContextType);
 
