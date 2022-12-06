@@ -120,7 +120,7 @@ export default function Survey() {
             title={"With your help we will grow the crytpo world!"}
             footer={[
               <Button key="back" onClick={() => handleSend()}>
-                Sign answers to contractor
+                Sign answers to contract
               </Button>,
               <Button
                 key="submit"
