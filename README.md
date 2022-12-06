@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Rather Labs Challenge
 
-First, run the development server:
+This repository is about a Rather-Labs Front-end engineer challenge where the main points were:
+- Connect Metamask wallet
+- Ensure user is connected to Goerli and if not show a button to switch networks automatically
+- Show balance of $QUIZ token (address below).
+- Once the page is loaded, present the title of the daily trivia with its picture and a button that allows you to begin answering
+- Once the survey starts, display the current question, which will be available for the amount of seconds in the lifetimeSeconds property.(Not done)
+- Answered or not it should move onto the next question.
+- Once all the questions are finished, show an overview with all the answers.
+- Show a button to submit the questions to the validator contract
+- Refresh the balance of $QUIZ
+## Deploy
+
+To run this project follow this steps:
 
 ```bash
-npm run dev
-# or
-yarn dev
+ In the root folder run the command "npm run dev" for development.
+ and "npm run build" for production.
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- NextJS 13 (could fail, is on experimental mode) https://nextjs.org/blog/next-13
+- Ethers.js
+- Ant Design
+- Linter
+- TypeScript
+- Ethereum/MetaMask provider (window.ethereum)
+- useContext and useReducer
+- The rest see for yourself :)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [@Everaldo Guevara](https://www.github.com/EveraldoGCH)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
